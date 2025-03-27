@@ -6,6 +6,7 @@ addLayer("w", {
         unlocked: true,
 		points: new Decimal(0),
     }},
+    row: 0,
     color: "#DC1313",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
@@ -66,7 +67,7 @@ addLayer("a", {
 		points: new Decimal(0),
     }},
     branches: ["b"],
-    row: 2,
+    row: 1,
     color: "#4BDC13",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
