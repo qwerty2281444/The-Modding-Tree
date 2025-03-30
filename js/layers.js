@@ -75,7 +75,7 @@ addLayer("b", {
 	    base = base.plus(tmp.b.addToBase);
     },
     effect() {
-        return Decimal.pow(tmp.b.effectBase, player.b.points.plus(tmp.sb.spectralTotal));
+        return Decimal.pow(tmp.b.effectBase, player.b.points);
     },
     effectDescription() {
         return "which are boosting color generation by "+format(tmp.b.effect)+"x"
