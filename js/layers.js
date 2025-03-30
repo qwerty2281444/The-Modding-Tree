@@ -15,6 +15,7 @@ addLayer("r", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -27,10 +28,29 @@ addLayer("r", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "Make this whatever you want!",
+            title: "Red Color",
             description: "Double your point gain.",
             cost: new Decimal(1),
-            
+        },
+        12: {
+            title: "Raddish red",
+            description: "Boost color based on red points.",
+            cost: new Decimal(2),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        
+        },
+        13: {
+            title: "Really red",
+            description: "Boost red based on color.",
+            cost: new Decimal(5),
+            effect() {
+                return player.points.add(1).pow(0.15)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        
         },
     },
 })
