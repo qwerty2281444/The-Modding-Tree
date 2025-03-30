@@ -85,7 +85,7 @@ addLayer("b", {
     ],
     layerShown(){return true},
     addToBase() {
-        let base = new Decimal(0);
+        let base = new Decimal(1);
         return base
     },
     effectBase() {
