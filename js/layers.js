@@ -70,16 +70,7 @@ addLayer("b", {
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
-    effectBase() {
-        let base = new Decimal(2);
-	    base = base.plus(tmp.b.addToBase);
-    },
-    effect() {
-        return Decimal.pow(tmp.b.effectBase, player.b.points);
-    },
-    effectDescription() {
-        return "which are boosting color generation by "+format(tmp.b.effect)+"x"
-    },
+
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -93,6 +84,20 @@ addLayer("b", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+    addToBase() {
+        let base = new Decimal(0);
+        return base
+    },
+    effectBase() {
+        let base = new Decimal(2);
+	    base = base.plus(tmp.b.addToBase);
+    },
+    effect() {
+        return Decimal.pow(tmp.b.effectBase, player.b.points);
+    },
+    effectDescription() {
+        return "which are boosting color generation by "+format(tmp.b.effect)+"x"
+    },
     upgrades: {
         11: {
             title: "Blue Color",
