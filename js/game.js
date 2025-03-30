@@ -170,7 +170,7 @@ function addPoints(layer, gain) {
 
 function generatePoints(layer, diff) {
 	addPoints(layer, tmp[layer].resetGain.times(diff))
-	if (hasUpgrade('p', 11)) gain = gain.times(2)
+	
 }
 
 function doReset(layer, force=false) {
