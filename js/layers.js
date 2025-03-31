@@ -84,16 +84,8 @@ addLayer("b", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    addToBase() {
-        let base = new Decimal(2);
-        return base
-    },
-    effectBase() {
-        let base = new Decimal(2);
-	    base = base.plus(tmp.b.addToBase);
-    },
     effect() {
-        return Decimal.pow(tmp.b.effectBase, player.b.points);
+        return Decimal.pow(player.b.points, 2);
     },
     effectDescription() {
         return "which are boosting color generation by "+format(tmp.b.effect)+"x"
