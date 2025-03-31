@@ -67,7 +67,7 @@ addLayer("b", {
     color: "#0011ff",
     requires: new Decimal(100), // Can be a function that takes requirement increases into account
     resource: "blue points", // Name of prestige currency
-    baseResource: "red points", // Name of resource prestige is based on
+    baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -96,6 +96,15 @@ addLayer("b", {
             title: "Blue Color",
             description: "Double red points gain.",
             cost: new Decimal(1),
+        },
+        11: {
+            title: "Sky blue",
+            description: "boost yellow points based on blue points.",
+            cost: new Decimal(1),
+            effect() {
+                return player.b.points.add(1).pow(0.3)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
 })
