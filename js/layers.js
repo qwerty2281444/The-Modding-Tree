@@ -86,7 +86,7 @@ addLayer("b", {
     ],
     layerShown(){return true},
     effect() {
-        return Decimal.pow(player.b.points, 2);
+        return Decimal.max(1,Decimal.pow(player.b.points, 2));
     },
     effectDescription() {
         return "which are boosting color generation by "+format(tmp.b.effect)+"x"
