@@ -16,6 +16,7 @@ addLayer("r", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('r', 13)) mult = mult.times(upgradeEffect('r', 13))
+        if (hasUpgrade('b', 11)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -93,7 +94,7 @@ addLayer("b", {
     upgrades: {
         11: {
             title: "Blue Color",
-            description: "Double your point gain.",
+            description: "Double red points gain.",
             cost: new Decimal(1),
         },
     },
