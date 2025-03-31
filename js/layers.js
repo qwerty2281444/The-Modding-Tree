@@ -141,9 +141,13 @@ addLayer("y", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "Yellow",
-            description: "double red points gain.",
+            title: "Yellow Color",
+            description: "Yellow points boost points at reduced rate.",
             cost: new Decimal(1),
+            effect() {
+                return player.y.points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
     },
 })
