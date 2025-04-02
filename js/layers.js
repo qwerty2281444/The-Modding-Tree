@@ -185,12 +185,12 @@ addLayer("g", {
         0: {
             requirementDesc: "1 green points",
             effectDesc: "keep red upgrades on blue and yellow resets",
-            done() { return player.g.points.gte(1) }
+            done() { return player.g.points.gte(1) },
         },
         1: {
             requirementDesc: "2 green points",
             effectDesc: "generate 100% of red points on reset",
-            done() { return player.g.points.gte(2) }
+            done() { return player.g.points.gte(2) },
         },
     }
 
