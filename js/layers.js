@@ -192,7 +192,7 @@ addLayer("g", {
             effectDesc: "generate 100% of red points on reset",
             done() { return player.g.points.gte(2) },
         },
-    }
+    },
 
     // upgrades: {
     //     11: {
