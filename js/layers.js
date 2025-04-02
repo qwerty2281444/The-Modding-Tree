@@ -183,13 +183,13 @@ addLayer("g", {
     layerShown(){return true},
     milestones: {
         0: {
-            requirementDesc: "1 green points",
-            effectDesc: "keep red upgrades on blue and yellow resets",
+            requirementDescription: "1 green points",
+            effectDescription: "keep red upgrades on blue and yellow resets",
             done() { return player.g.points.gte(1) },
         },
         1: {
-            requirementDesc: "2 green points",
-            effectDesc: "generate 100% of red points on reset",
+            requirementDescription: "2 green points",
+            effectDescription: "generate 100% of red points on reset",
             done() { return player.g.points.gte(2) },
         },
     },
