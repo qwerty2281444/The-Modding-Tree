@@ -85,6 +85,12 @@ addLayer("b", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+    passiveGeneration() { return (hasMilestone("g", 1))?1:0 },
+    doReset(resettingLayer) {
+        let keep = [];
+        if (hasMilestone("g", 0) && resettingLayer=="b") keep.push("upgrades")
+        if (hasMilestone("g", 0) && resettingLayer=="y") keep.push("upgrades")
+    },
     effect() {
         return Decimal.max(1,Decimal.pow(player.b.points, 2));
     },
