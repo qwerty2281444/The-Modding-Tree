@@ -46,6 +46,7 @@ function getPointGen() {
 	if (hasUpgrade('r', 12)) gain = gain.times(upgradeEffect('r', 12))
 	if (player.b.unlocked) gain = gain.times(tmp.b.effect);
 	if (hasUpgrade('y', 11)) gain = gain.times(upgradeEffect('y', 11))
+	if (hasUpgrade('g', 11)) mult = mult.times(upgradeEffect('g', 11))
 	return gain
 }
 
