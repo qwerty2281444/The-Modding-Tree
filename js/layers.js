@@ -17,6 +17,7 @@ addLayer("r", {
         mult = new Decimal(1)
         if (hasUpgrade('r', 13)) mult = mult.times(upgradeEffect('r', 13))
         if (hasUpgrade('b', 11)) mult = mult.times(2)
+        if (hasUpgrade('y', 12)) mult = mult.times(upgradeEffect('y', 12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -152,6 +153,15 @@ addLayer("y", {
             cost: new Decimal(1),
             effect() {
                 return player.y.points.add(1).pow(0.1)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        12: {
+            title: "New Yeller",
+            description: "Yellow points boost red points",
+            cost: new Decimal(10),
+            effect() {
+                return player.y.points.add(1).pow(0.15)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
